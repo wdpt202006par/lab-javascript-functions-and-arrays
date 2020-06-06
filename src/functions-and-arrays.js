@@ -22,7 +22,6 @@ function findLongestWord(words) {
   for (let i = 1; i < words.length; i++) {
     if (words[i].length > longestWord.length) {
       longestWord = words[i]; //9
-
     }
   }
   return longestWord;
@@ -34,6 +33,8 @@ findLongestWord(words);
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
