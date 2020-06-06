@@ -27,31 +27,53 @@ function findLongestWord(words) {
   return longestWord;
 }
 
-findLongestWord(words);
+findLongestWord(words); // Function calling
 
 
 // Iteration #3: Calculate the sum
+// Bonus 3.1 missing
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-<<<<<<< HEAD
-
-=======
 let sum = 0;
-function sumNumber (numbers) {
-  for (let i = 0 ; i < numbers.length ; i++){
+
+function sumNumber(numbers) {
+  for (let i = 0; i < numbers.length; i++) {
     sum = sum += numbers[i];
   }
   return sum;
 }
->>>>>>> 14c5377ad488e9206834f0393b3b095b76485443
+
+sumNumber(numbers); // Function calling
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  sumNumber(numbersAvg);
+  var average = sum / array.length;
+  return average;
+}
+
+averageNumbers(numbersAvg); // Function calling
+
 // Level 2: Array of strings
+
+// Bonus 4.1 missing
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(array) {
+  var totalWordLength = 0;
+  //var arrayLength = array.length;
+  for (let i = 0; i < array.length; i++) {
+    totalWordLength += array[i].length;
+  }
+  var avgWordLength = totalWordLength / array.length;
+  return avgWordLength;
+}
+
+averageWordLength(wordsArr); // Function calling
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
