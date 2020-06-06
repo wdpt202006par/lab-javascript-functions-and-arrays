@@ -38,14 +38,14 @@ function sumNumbers (someArrayOfNumbers){
   }
   return sum;
 }
-sumNumbers(numbers);
+console.log(sumNumbers(numbers));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(arrNumber){
   if (arrNumber.length === 0){
-    return 0;
+    return null;
   }
   var average = sumNumbers(arrNumber)/arrNumber.length;
   return average; 
@@ -56,14 +56,17 @@ console.log(averageNumbers(numbersAvg));
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 function averageWordLength (arrWord){
+  if (arrWord.length === 0){
+    return null;
+  }
   var arrayOfWordLength = [];
   for (let i=0; i<arrWord.length; i++){
-    arrayOfWordLength.push(arrWord[i]);
+    arrayOfWordLength.push(arrWord[i].length);
   }
   var avgWordLength = averageNumbers (arrayOfWordLength);
   return avgWordLength;
 };
-averageWordLength(wordsArr);
+console.log(averageWordLength(wordsArr));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -78,9 +81,37 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(someArrayOfWords){
+  if (someArrayOfWords.length === 0){
+    return null;
+  }
+  var newArrayOfWords=[];
+  for (let i=0; i<someArrayOfWords.length;i++){
+    if(someArrayOfWords.indexOf(someArrayOfWords[i]) === i){
+      newArrayOfWords.push(someArrayOfWords[i]);
+    } 
+  }
+  return newArrayOfWords;
+};
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (arrWord, word2Search){
+  if (arrWord.length === 0){
+    return null;
+  }
+  for (let i=0; i<arrWord.length; i++){
+    if (arrWord[i] === word2Search){ 
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(doesWordExist(wordsFind, "eating"));
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -96,7 +127,19 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimes (arrWord, word2Search) {
+  if (arrWord.length === 0){
+    return 0;
+  }
+  var count = 0;
+  for (let i=0; i<arrWord.length; i++){
+    if (word2Search === arrWord[i]){
+      count++;
+    }
+  }
+  return count;
+}
+console.log(howManyTimes(wordsCount, "matter"));
 // Iteration #8: Bonus
 
 const matrix = [
