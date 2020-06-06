@@ -62,8 +62,8 @@ function sum(mixedArr){
         case "number":
           longeur += element;
           break;
-        default:
-            alert('unsupported value!');
+        default :
+          console.error("error");
       }
     
     } )
