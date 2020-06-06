@@ -30,6 +30,20 @@ findLongestWord(words)
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers){
+  if (numbers.length===0){
+    return 0;
+  }else{
+    var sum= 0;
+    numbers.forEach(function(el){
+    sum+=el})
+    return sum;
+  }
+ 
+}
+
+sumNumbers(numbers)
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
