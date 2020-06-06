@@ -41,8 +41,33 @@ function sumNumbers(numbers){
   }
  
 }
-
 sumNumbers(numbers)
+
+// Bonus Iteration #3: calculate mixed Array
+function sum(mixedArr){
+  var longeur= 0;
+  if (mixedArr.length===0){
+    return 0;
+  }else{
+    mixedArr.forEach(function(element){
+      switch (typeof(element)){
+        case "string":
+          longeur+= element.length;
+          break;
+        case "boolean":
+          if (element=== true){
+            longeur += 1;
+          }
+          break;
+        case "number":
+          longeur += element;
+      }
+    
+    } )
+  }  
+  return longeur;
+}
+console.log('la somme des élement est:' +sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
