@@ -135,6 +135,18 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(array, repeatedWord) {
+  var repetitionNb = 0;
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === repeatedWord) {
+      repetitionNb++;
+    }
+  }
+  return repetitionNb;
+}
+
+howManyTimes(wordsCount, 'subset'); // Function calling
+
 // Iteration #8: Bonus
 
 const matrix = [
