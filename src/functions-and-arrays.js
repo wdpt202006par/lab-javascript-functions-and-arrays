@@ -59,15 +59,61 @@ function sum(array) {
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null;
+  } else {
+    return sumNumbers(array)/array.length;
+  }
+}
+
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 // Level 2: Array of strings
+
+function averageWordLength(array) {
+  var new_array = [];
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (var i = 0; i < array.length; i++) {
+      new_array.push(array[i].length);
+    }
+  }
+  return sumNumbers(new_array)/new_array.length;
+}
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function avg(array) {
+  var avg = 0;
+  if (array.length === 0) {
+    return null;
+  } else {
+    avg = sum(array)/array.length;
+    return Number(avg.toFixed(2));
+  }
+}
+
 // Iteration #5: Unique arrays
+
+function uniquifyArray(array) {
+  var new_array = [];
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (var i = 0; i < array.length; i++) {
+      if (new_array.indexOf(array[i]) === -1) {
+        new_array.push(array[i]);
+      }
+    }
+  }
+  return new_array;
+}
+
 const wordsUnique = [
   'crab',
-  'poison',
+  'poison',  
   'contagious',
   'simple',
   'bring',
@@ -80,9 +126,35 @@ const wordsUnique = [
 ];
 
 // Iteration #6: Find elements
+
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (var i = 0; i < array.length; i++) {
+      return array.includes(word) ? true : false;
+    }
+  }
+}
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 // Iteration #7: Count repetition
+
+function howManyTimes(array, word) {
+  var times = 0;
+  if (array.length === 0) {
+    return 0;
+  } else {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === word) {
+        times += 1;
+      }
+    }
+  }
+  return times;
+}
+
 const wordsCount = [
   'machine',
   'matter',
