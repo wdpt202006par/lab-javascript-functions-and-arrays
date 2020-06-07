@@ -40,6 +40,29 @@ function sumNumbers (someArrayOfNumbers){
 }
 console.log(sumNumbers(numbers));
 
+//bonus 3.1
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(arrMix) {
+  if (arrMix.length === 0){
+    return 0;
+  }
+  var newArr=[];
+  for (let i=0; i<arrMix.length;i++){
+    if (typeof arrMix[i] === "number"){
+      newArr.push(arrMix[i]);
+    }else if (typeof arrMix[i] === "string"){
+      newArr.push(arrMix[i].length);
+    } else if (typeof arrMix[i] === "boolean"){
+      newArr.push(1);
+    } else if (typeof arrMix[i] === "object" || typeof arrMix[i] === "array") {
+      throw `${arrMix[i]} is unsupported`;
+    }
+  }
+  return sumNumbers(newArr);
+}
+
+console.log(sum(mixedArr));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -67,6 +90,27 @@ function averageWordLength (arrWord){
   return avgWordLength;
 };
 console.log(averageWordLength(wordsArr));
+
+// bonus 4.1 a generic avg() function
+
+function avg (arrMix) {
+  if (arrMix.length === 0){
+    return null;
+  }
+  var newArr=[];
+  for (let i=0; i<arrMix.length;i++){
+    if (typeof arrMix[i] === "number"){
+      newArr.push(arrMix[i]);
+    }else if (typeof arrMix[i] === "string"){
+      newArr.push(arrMix[i].length);
+    } else if (typeof arrMix[i] === "boolean"){
+      newArr.push(1);
+    } 
+  }
+  return averageNumbers(newArr);
+}
+
+console.log(avg(mixedArr));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -164,3 +208,30 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+  var maxHorirotal = 0;
+  for (let i=0; i<matrix.length;i++){
+    for (let j=0; j<=matrix[i].length-4; j++){
+      if (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3] >= maxHorirotal){
+        maxHorirotal = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      }
+    }
+  }
+  
+  var maxVertical = 0;
+  for (let i=0; i<=matrix.length-4;i++){
+    for (let j=0; j<matrix[i].length; j++){
+      if (matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j] >= maxVertical){
+        maxVertical = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      }
+    }
+  }
+  var max; 
+  if (maxHorirotal>=maxVertical){
+    max = maxHorirotal;
+  }else {
+    max = maxVertical;
+  }
+  return max;
+};
+console.log (greatestProduct(matrix));
