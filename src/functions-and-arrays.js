@@ -3,24 +3,24 @@ function maxOfTwoNumbers(numberA, numberB) {
   return Math.max(numberA, numberB);
 }
 // Iteration #2: Find longest word
+
 const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
+
 function findLongestWord(words) {
-  var longestWord = "";
-  if ((words = [])) {
-    return null;
-  } else if (words.length === 1) {
-    return words[0];
-  } else {
-    words.forEach(function (word) {
-      if (word.length > longestWord.length) {
-        longestWord = word;
-        return longestWord;
-      } else if (word.length === longestWord.length) {
-        return word;
-      }
-    });
+  if (words.length === 0) {
+   return null;
   }
+  let longestWord = "";
+  for (var i = 0; i < words.length; i++) {
+  let word = words[i];
+  if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
 }
+
+
 
 // Iteration #3: Calculate the sum
 
