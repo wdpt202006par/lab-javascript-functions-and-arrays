@@ -1,18 +1,20 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers (number1,number2) {
-  return( Math.max(number1,number2));
-};
-console.log(maxOfTwoNumbers(4,5));
+function maxOfTwoNumbers (number1, number2){
+  return (Math.max(number1,number2));
+}
+maxOfTwoNumbers (4,5);
+
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
 function findLongestWord (someArray){
-  if (someArray.length === 0){
+  if(someArray.length === 0){ // pourquoi ici on ne écrit pas someArray[i].length ? (Enine)
     return null;
   }
   var max = 0;
-  for (let i=0; i<someArray.length; i++){ 
-    max = Math.max(max,someArray[i].length);  
+  for (let i=0; i<someArray.length; i++){  // 1) pourquoi ici on ne écrit pas someArray[i].length ? (Enine) 2) Pourquoi si on met <= cela me retourne "Cannot read property 'length' of undefined "?
+    max = Math.max(max,someArray[i].length);  // pourquoi ici on écrit someArray[i].length ? (Enine)
   }
   var longestWord;
   for (let i=0; i<someArray.length; i++){
@@ -22,95 +24,61 @@ function findLongestWord (someArray){
     }
   }
    return(longestWord);
-}
-console.log(findLongestWord (words));
+  }
+findLongestWord(words);
+
+
 // Iteration #3: Calculate the sum
-
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
-
-function sumNumbers (someArrayOfNumbers){
-  if (someArrayOfNumbers.length === 0){
-    return 0;
-  }
-  var sum =0;
-  for ( let i=0; i<someArrayOfNumbers.length; i++){
-    sum += someArrayOfNumbers[i];
-  }
+function sumNumbers (numArray){
+  var sum = 0;
+  for (i = 0; i<numArray.length; i++){
+    sum += numArray[i]; 
+   }
   return sum;
 }
-console.log(sumNumbers(numbers));
 
-//bonus 3.1
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-function sum(arrMix) {
-  if (arrMix.length === 0){
-    return 0;
-  }
-  var newArr=[];
-  for (let i=0; i<arrMix.length;i++){
-    if (typeof arrMix[i] === "number"){
-      newArr.push(arrMix[i]);
-    }else if (typeof arrMix[i] === "string"){
-      newArr.push(arrMix[i].length);
-    } else if (typeof arrMix[i] === "boolean"){
-      newArr.push(1);
-    } else if (typeof arrMix[i] === "object" || typeof arrMix[i] === "array") {
-      throw `${arrMix[i]} is unsupported`;
-    }
-  }
-  return sumNumbers(newArr);
-}
+sumNumbers(numbers);
 
-console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function averageNumbers(arrNumber){
-  if (arrNumber.length === 0){
-    return null;
-  }
-  var average = sumNumbers(arrNumber)/arrNumber.length;
-  return average; 
+
+function averageNumbers (arrNumber) {
+  var avg = sumNumbers (arrNumber)/arrNumber.length;
+  return avg;
 }
 
-console.log(averageNumbers(numbersAvg));
+averageNumbers (numbersAvg);
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-function averageWordLength (arrWord){
-  if (arrWord.length === 0){
-    return null;
+
+// @Julie : le code semble imprimer un tableau de chaînes et non nombre ! Je ligne 70 le code remplaçant.
+// function averageWordLength (arrWord){
+//   var arrayOfWordLength = [];
+//   for (let i=0; i<arrWord.length; i++){
+//     arrayOfWordLength.push(arrWord[i]);
+//   }
+//   var avgWordLength = averageNumbers (arrayOfWordLength);
+//   return avgWordLength;
+// };
+
+
+function averageWordLength (arrWord) {
+  var longEachWordArray = [];
+  for (let i = 0; i<arrWord.length; i++){
+    longEachWordArray.push(arrWord[i].length);
+    console.log(longEachWordArray);
   }
-  var arrayOfWordLength = [];
-  for (let i=0; i<arrWord.length; i++){
-    arrayOfWordLength.push(arrWord[i].length);
-  }
-  var avgWordLength = averageNumbers (arrayOfWordLength);
+  var avgWordLength = sumNumbers(longEachWordArray) / arrWord.length;
   return avgWordLength;
-};
-console.log(averageWordLength(wordsArr));
-
-// bonus 4.1 a generic avg() function
-
-function avg (arrMix) {
-  if (arrMix.length === 0){
-    return null;
-  }
-  var newArr=[];
-  for (let i=0; i<arrMix.length;i++){
-    if (typeof arrMix[i] === "number"){
-      newArr.push(arrMix[i]);
-    }else if (typeof arrMix[i] === "string"){
-      newArr.push(arrMix[i].length);
-    } else if (typeof arrMix[i] === "boolean"){
-      newArr.push(1);
-    } 
-  }
-  return averageNumbers(newArr);
 }
 
-console.log(avg(mixedArr));
+averageWordLength(wordsArr);
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -125,37 +93,9 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray(someArrayOfWords){
-  if (someArrayOfWords.length === 0){
-    return null;
-  }
-  var newArrayOfWords=[];
-  for (let i=0; i<someArrayOfWords.length;i++){
-    if(someArrayOfWords.indexOf(someArrayOfWords[i]) === i){
-      newArrayOfWords.push(someArrayOfWords[i]);
-    } 
-  }
-  return newArrayOfWords;
-};
-console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
-function doesWordExist (arrWord, word2Search){
-  if (arrWord.length === 0){
-    return null;
-  }
-  for (let i=0; i<arrWord.length; i++){
-    if (arrWord[i] === word2Search){ 
-      return true;
-    }
-  }
-  return false;
-}
-
-console.log(doesWordExist(wordsFind, "eating"));
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -171,19 +111,7 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-function howManyTimes (arrWord, word2Search) {
-  if (arrWord.length === 0){
-    return 0;
-  }
-  var count = 0;
-  for (let i=0; i<arrWord.length; i++){
-    if (word2Search === arrWord[i]){
-      count++;
-    }
-  }
-  return count;
-}
-console.log(howManyTimes(wordsCount, "matter"));
+
 // Iteration #8: Bonus
 
 const matrix = [
@@ -208,30 +136,3 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-function greatestProduct(matrix){
-  var maxHorirotal = 0;
-  for (let i=0; i<matrix.length;i++){
-    for (let j=0; j<=matrix[i].length-4; j++){
-      if (matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3] >= maxHorirotal){
-        maxHorirotal = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
-      }
-    }
-  }
-  
-  var maxVertical = 0;
-  for (let i=0; i<=matrix.length-4;i++){
-    for (let j=0; j<matrix[i].length; j++){
-      if (matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j] >= maxVertical){
-        maxVertical = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
-      }
-    }
-  }
-  var max; 
-  if (maxHorirotal>=maxVertical){
-    max = maxHorirotal;
-  }else {
-    max = maxVertical;
-  }
-  return max;
-};
-console.log (greatestProduct(matrix));
