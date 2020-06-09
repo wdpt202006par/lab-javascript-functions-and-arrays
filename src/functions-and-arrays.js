@@ -8,37 +8,66 @@ const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard",
 
 function findLongestWord(words) {
   if (words.length === 0) {
-   return null;
+    return null;
   }
   let longestWord = "";
   for (var i = 0; i < words.length; i++) {
-  let word = words[i];
-  if (word.length > longestWord.length) {
+    let word = words[i];
+    if (word.length > longestWord.length) {
       longestWord = word;
     }
   }
   return longestWord;
 }
 
-
-
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-function sumNumbers(numbersAvg) {
+function sumNumbers(numbers) {
   var cumul = 0;
-  if (numbersAvg.length === 0) return 0;
-  else if (numbersAvg.length === 1) return numbersAvg[0];
-  for (let i = 0; i < numbersAvg.lenght; i++) {
-    cumul += numbersAvg[i];
+  if (numbers.length === 0) return 0;
+  else if (numbers.length === 1) return numbers[0];
+  else {
+    for (let i = 0; i < numbers.length; i++) {
+      cumul += numbers[i];
+    }
   }
   return cumul;
 }
-
+//bonus
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+function sum(mixedArr) {
+  var sumArray = [];
+  var sum = 0;
+  if ((mixedArr = [])) {
+    sum = 0;
+    return (sumArray.push = sum);
+  } else if (mixedArr.length === 1) {
+    return (sum.push = mixedArr[0]);
+  } else {
+    for (let i = 0; i < mixedArr.length; i++) {
+      if (mixedArr[i] === NaN) {
+        mixedArr[i] = Number(mixedArr[i]);
+      } else {
+        mixedArr[i] = mixedArr[i].length;
+      }
+      sum += mixedArr[i];
+    }
+    return (sumArray.push = sum);
+  }
+}
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
+function averageNumbers(arrOfNumbers) {
+  if (arrOfNumbers.length === 0) {
+    return 0;
+  } else {
+    return sumNumbers(arrOfNumbers) / arrOfNumbers.length;
+  }
+}
+
 // Level 2: Array of strings
 const wordsArr = [
   "seat",
@@ -52,6 +81,18 @@ const wordsArr = [
   "fuel",
   "palace",
 ];
+
+function averageWordLength(wordsArr) {
+  let sumWordLengths = 0;
+  if (wordsArr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      sumWordLengths += wordsArr[i].length;
+    }
+    return sumWordLengths / wordsArr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -67,6 +108,21 @@ const wordsUnique = [
   "simple",
   "bring",
 ];
+function uniquifyArray(wordsUnique) {
+  let arrUnique = [];
+  let index = 0;
+  let repetition = 0;
+  for (let i = 0; i < wordsUnique.length; i++) {
+    while (wordsUnique.indexOf(wordsUnique[i], index) !== -1) {
+      index = wordsUnique.indexOf(wordsUnique[i], index);
+      index++;
+      repetition++;
+    }
+    if (repetition > 1) {
+      arrUnique.push = wordsUnique[i];
+    }
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
