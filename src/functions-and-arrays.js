@@ -60,9 +60,11 @@ function sum(mixedArr) {
 // Iteration #4: Calculate the average
 
 // Level 1: Array of numbers
+
+
 function averageNumbers(arrOfNumbers) {
   if (arrOfNumbers.length === 0) {
-    return 0;
+    return null;
   } else {
     return sumNumbers(arrOfNumbers) / arrOfNumbers.length;
   }
@@ -85,7 +87,7 @@ const wordsArr = [
 function averageWordLength(wordsArr) {
   let sumWordLengths = 0;
   if (wordsArr.length === 0) {
-    return 0;
+    return null;
   } else {
     for (let i = 0; i < wordsArr.length; i++) {
       sumWordLengths += wordsArr[i].length;
@@ -93,6 +95,7 @@ function averageWordLength(wordsArr) {
     return sumWordLengths / wordsArr.length;
   }
 }
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -112,7 +115,9 @@ function uniquifyArray(wordsUnique) {
   let arrUnique = [];
   let index = 0;
   let repetition = 0;
-  for (let i = 0; i < wordsUnique.length; i++) {
+  if (wordsUnique.length === 0) {
+    return null;
+  } for (let i = 0; i < wordsUnique.length; i++) {
     while (wordsUnique.indexOf(wordsUnique[i], index) !== -1) {
       index = wordsUnique.indexOf(wordsUnique[i], index);
       index++;
