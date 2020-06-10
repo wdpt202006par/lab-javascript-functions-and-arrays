@@ -9,12 +9,11 @@ maxOfTwoNumbers (4,5);
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord (someArray){
-  if(someArray.length === 0){ // pourquoi ici on ne écrit pas someArray[i].length ? (Enine)
-    return null;
+  if(someArray.length === 0){
   }
   var max = 0;
-  for (let i=0; i<someArray.length; i++){  // 1) pourquoi ici on ne écrit pas someArray[i].length ? (Enine) 2) Pourquoi si on met <= cela me retourne "Cannot read property 'length' of undefined "?
-    max = Math.max(max,someArray[i].length);  // pourquoi ici on écrit someArray[i].length ? (Enine)
+  for (let i=0; i<someArray.length; i++){ 
+    max = Math.max(max,someArray[i].length);
   }
   var longestWord;
   for (let i=0; i<someArray.length; i++){
@@ -53,9 +52,13 @@ function sum(arrMix) {
     }else if (typeof arrMix[i] === "string"){
       newArr.push(arrMix[i].length);
     } else if (typeof arrMix[i] === "boolean"){
-      newArr.push(1);
+      if(arrMix[i] === true){
+        newArr.push(1);
+      }else{
+        newArr.push(0);
+      }
     } else if (typeof arrMix[i] === "object" || typeof arrMix[i] === "array") {
-      throw `${arrMix[i]} is unsupported`;
+      throw Error('Unsupported data type sir or ma\'am');
     }
   }
   return sumNumbers(newArr);
@@ -105,18 +108,30 @@ function avg (arrMix) {
   }
   var newArr=[];
   for (let i=0; i<arrMix.length;i++){
-    if (typeof arrMix[i] === "number"){
+    if (typeof arrMix[i] === "boolean"){
+      if(arrMix[i] === true){
+        newArr.push(1);
+        } else {
+        newArr.push(0);
+        }
+    } else if (typeof arrMix[i] === "number"){
       newArr.push(arrMix[i]);
-    }else if (typeof arrMix[i] === "string"){
+    } else if (typeof arrMix[i] === "string"){
       newArr.push(arrMix[i].length);
-    } else if (typeof arrMix[i] === "boolean"){
-      newArr.push(1);
-    } 
+      }
   }
-  return averageNumbers(newArr);
+  return parseFloat(averageNumbers(newArr).toFixed(2));
 }
 
-console.log(avg(mixedArr));
+console.log(avg(mixedArr)); // => 5.7; répond bien aux instructions du LAB mais ne passe pas aux tests de Jasmine.
+
+// Pour répondre aux tests Jasmine
+let JasmineArrayTrue = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, true];
+console.log(avg(JasmineArrayTrue));
+
+let JasmineArrayFalse = [6, 12, 'miami', 1, 'barca', '200', 'lisboa', 8, false];
+console.log(avg(JasmineArrayFalse));
+
 
 // Iteration #5: Unique arrays
 
