@@ -10,6 +10,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
 function findLongestWord (someArray){
   if(someArray.length === 0){
+    return null;
   }
   var max = 0;
   for (let i=0; i<someArray.length; i++){ 
