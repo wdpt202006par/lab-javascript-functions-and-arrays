@@ -1,50 +1,159 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(numberA, numberB) {
+  return Math.max(numberA, numberB);
+}
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+const words = ["mystery", "brother", "aviator", "crocodile", "pearl", "orchard", "crackpot"];
+
+function findLongestWord(words) {
+  if (words.length === 0) {
+    return null;
+  }
+  let longestWord = "";
+  for (var i = 0; i < words.length; i++) {
+    let word = words[i];
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(numbers) {
+  var cumul = 0;
+  if (numbers.length === 0) return 0;
+  else if (numbers.length === 1) return numbers[0];
+  else {
+    for (let i = 0; i < numbers.length; i++) {
+      cumul += numbers[i];
+    }
+  }
+  return cumul;
+}
+//bonus
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+function sum(mixedArr) {
+  var sumArray = [];
+  var sum = 0;
+  if ((mixedArr = [])) {
+    sum = 0;
+    return (sumArray.push = sum);
+  } else if (mixedArr.length === 1) {
+    return (sum.push = mixedArr[0]);
+  } else {
+    for (let i = 0; i < mixedArr.length; i++) {
+      if (mixedArr[i] === NaN) {
+        mixedArr[i] = Number(mixedArr[i]);
+      } else {
+        mixedArr[i] = mixedArr[i].length;
+      }
+      sum += mixedArr[i];
+    }
+    return (sumArray.push = sum);
+  }
+}
 // Iteration #4: Calculate the average
+
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
+function averageNumbers(arrOfNumbers) {
+  if (arrOfNumbers.length === 0) {
+    return null;
+  } else {
+    return sumNumbers(arrOfNumbers) / arrOfNumbers.length;
+  }
+}
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = [
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace",
+];
+
+function averageWordLength(wordsArr) {
+  let sumWordLengths = 0;
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      sumWordLengths += wordsArr[i].length;
+    }
+    return sumWordLengths / wordsArr.length;
+  }
+}
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring",
 ];
+function uniquifyArray(wordsUnique) {
+  let arrUnique = [];
+  let index = 0;
+  let repetition = 0;
+  if (wordsUnique.length === 0) {
+    return null;
+  } for (let i = 0; i < wordsUnique.length; i++) {
+    while (wordsUnique.indexOf(wordsUnique[i], index) !== -1) {
+      index = wordsUnique.indexOf(wordsUnique[i], index);
+      index++;
+      repetition++;
+    }
+    if (repetition > 1) {
+      arrUnique.push = wordsUnique[i];
+    }
+  }
+}
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience",
+];
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter",
 ];
 
 // Iteration #8: Bonus
@@ -69,5 +178,5 @@ const matrix = [
   [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ];
