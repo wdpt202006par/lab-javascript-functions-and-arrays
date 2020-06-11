@@ -50,6 +50,7 @@ function sumNumbers(anArray) {
 
 console.log(sumNumbers(numbers));
 
+
 function sum(anArray) {
 	if (anArray === []) {
 		sum += 0;
